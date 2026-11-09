@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="1200" height="450" role="img" aria-labelledby="title desc">
+  <title id="title">Allen Shaji Varghese</title>
+  <desc id="desc">Software engineer, Drexel University class of 2027, Philadelphia. I build software people rely on, and I make it show its work. Overflow co-op, March to September 2026, with a return offer. Sole engineer on the Indian Evangelical Team's grant system, live across India. NASA Space Apps 2025 Global Nominee for AirCast.</desc>
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    /* the resting state is drawn; the animation only plays it in, so a renderer without CSS animation still shows the rule */
+    .rule { stroke-dasharray: 240; stroke-dashoffset: 0; animation: draw 1s cubic-bezier(.2, .7, .2, 1) .4s backwards; }
+    @keyframes draw { from { stroke-dashoffset: 240; } to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .rule { animation: none; } }
+  </style>
+
+  <rect x="0.5" y="0.5" width="1199" height="449" rx="16" fill="#ffffff" stroke="#e5e5ea"/>
+
+  <!-- dateline -->
+  <text class="mono" x="64" y="68" font-size="15" letter-spacing="2.4" fill="#68686d">SOFTWARE ENGINEER · DREXEL UNIVERSITY ’27 · PHILADELPHIA</text>
+  <text class="mono" x="1136" y="68" font-size="15" letter-spacing="2.4" fill="#68686d" text-anchor="end">ALLENVARGHESE.COM</text>
+  <line x1="64" y1="92.5" x2="1136" y2="92.5" stroke="#e5e5ea"/>
+
+  <!-- name and thesis -->
+  <text class="sans" x="60" y="190" font-size="88" font-weight="600" letter-spacing="-2.6" fill="#1d1d1f">Allen Shaji Varghese</text>
+  <text class="sans" x="64" y="250" font-size="30" fill="#424245">I build software people rely on,</text>
+  <text class="sans" x="64" y="290" font-size="30" fill="#424245">and I make it <tspan fill="#a85410">show its work.</tspan></text>
+
+  <!-- the one motion: the amber segment draws in once -->
+  <line x1="64" y1="336.5" x2="1136" y2="336.5" stroke="#e5e5ea"/>
+  <line class="rule" x1="64" y1="336.5" x2="304" y2="336.5" stroke="#a85410" stroke-width="2"/>
+
+  <!-- cover lines -->
+  <text class="mono" x="64" y="376" font-size="13" letter-spacing="2" fill="#68686d">OVERFLOW · MAR – SEP 2026</text>
+  <text class="sans" x="64" y="408" font-size="21" fill="#1d1d1f">Co-op, with a return offer</text>
+
+  <text class="mono" x="432" y="376" font-size="13" letter-spacing="2" fill="#68686d">INDIAN EVANGELICAL TEAM</text>
+  <text class="sans" x="432" y="408" font-size="21" fill="#1d1d1f">Sole engineer, live across India</text>
+
+  <text class="mono" x="800" y="376" font-size="13" letter-spacing="2" fill="#68686d">NASA SPACE APPS 2025</text>
+  <text class="sans" x="800" y="408" font-size="21" fill="#1d1d1f">Global Nominee for AirCast</text>
+</svg>

@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "about": "Every figure on README.md is one of these facts. scripts/ledger.py recomputes the 'recomputed' ones from committed data at the pinned commit, matches every proof phrase against the live portfolio, and blocks any digit in the README that isn't a fact, a year or a listed name.",
+  "site": "https://allenvarghese.com/projects",
+  "pins": {
+    "allenvarghese05/telltale": "24b38ab2f45a3cf8d95627fa0dced600f131d989"
+  },
+  "names": [
+    "Python 3.12",
+    "SAM 3.1",
+    "Muse Spark 1.3",
+    "Llama 3.2 1B",
+    "Llama 3.2",
+    "GPT-4o-mini",
+    "GPT-4o",
+    "SHA-256",
+    "order-3",
+    "3D"
+  ],
+  "facts": [
+    {
+      "id": "telltale.investigations",
+      "display": "151",
+      "kind": "cited",
+      "proof": [
+        "151",
+        "live AI investigations, each checked by code"
+      ],
+      "note": "19 benchmark + 30 hard + 30 robustness + 18 repeat + 20 confusable + 34 demo runs, as Telltale's README lists them. The demo runs carry no field that separates them, so this one is matched, not recomputed."
+    },
+    {
+      "id": "telltale.published_wrong",
+      "display": "0",
+      "kind": "recomputed",
+      "recompute": {
+        "repo": "allenvarghese05/telltale",
+        "op": "sum",
+        "terms": [
+          {
+            "file": "agent_bench.json",
+            "path": "summary.verified_but_wrong"
+          },
+          {
+            "file": "agent_bench_hard.json",
+            "path": "summary.verified_but_wrong"
+          },
+          {
+            "file": "agent_bench_confusable.json",
+            "path": "summary.verified_but_wrong"
+          },
+          {
+            "file": "agent_bench_robust.json",
+            "path": "conditions.*.fooled_verdict_verified"
+          }
+        ],
+        "as": "int"
+      },
+      "proof": [
+        "wrong verdicts published (2 caught and withheld)"
+      ],
+      "note": "Wrong verdicts the checker let through, summed over every committed agent benchmark file."
+    },
+    {
+      "id": "telltale.withheld",
+      "display": "2",
+      "kind": "recomputed",
+      "recompute": {
+        "repo": "allenvarghese05/telltale",
+        "op": "sum",
+        "terms": [
+          {
+            "file": "agent_bench.json",
+            "path": "summary.agent_wrong_flagged"
+          },
+          {
+            "file": "agent_bench_hard.json",
+            "path": "summary.agent_wrong_flagged"
+          },
+          {
+            "file": "agent_bench_confusable.json",
+            "path": "summary.agent_wrong_flagged"
+          },
+          {
+            "file": "agent_bench_robust.json",
+            "path": "conditions.*.fooled_verdict_withheld"
+          }
+        ],
+        "as": "int"
+      },
+      "proof": [
+        "wrong verdicts published (2 caught and withheld)"
+      ],
+      "note": "Wrong verdicts the checker caught and withheld, summed over the same files."
+    },
+    {
+      "id": "telltale.onset_found",
+      "display": "65%",
+      "kind": "recomputed",
+      "recompute": {
+        "repo": "allenvarghese05/telltale",
+        "op": "json_path",
+        "file": "video_bench.json",
+        "path": "summary.onset_coverage",
+        "as": "percent"
+      },
+      "proof": [],
+      "note": "Share of the clips where a danger onset was found at all."
+    },
+    {
+      "id": "telltale.clips",
+      "display": "400",
+      "kind": "recomputed",
+      "recompute": {
+        "repo": "allenvarghese05/telltale",
+        "op": "json_path",
+        "file": "video_bench.json",
+        "path": "summary.n_attempted",
+        "as": "int"
+      },
+      "proof": [
+        "400 real clips"
+      ],
+      "note": "Real crash clips with human-labelled onsets."
+    },
+    {
+      "id": "telltale.onset_2s",
+      "display": "74%",
+      "kind": "recomputed",
+      "recompute": {
+        "repo": "allenvarghese05/telltale",
+        "op": "json_path",
+        "file": "video_bench.json",
+        "path": "summary.within_2_0s",
+        "as": "percent"
+      },
+      "proof": [
+        "74%",
+        "danger onsets within 2 s of human labels"
+      ],
+      "note": "Of the onsets found, the share within two seconds of the human label."
+    },
+    {
+      "id": "iet.analytics",
+      "display": "1.28 s",
+      "kind": "cited",
+      "proof": [
+        "1.28 s",
+        "all-time analytics, down from 31.4 s"
+      ],
+      "note": "Private client repository; matched to the case study."
+    },
+    {
+      "id": "iet.analytics_before",
+      "display": "31.4 s",
+      "kind": "cited",
+      "proof": [
+        "all-time analytics, down from 31.4 s"
+      ],
+      "note": "Same database connection, before the rewrite."
+    },
+    {
+      "id": "iet.checks",
+      "display": "700+",
+      "kind": "cited",
+      "proof": [
+        "700+",
+        "automated checks in CI"
+      ],
+      "note": ""
+    },
+    {
+      "id": "iet.pastors",
+      "display": "3,000+",
+      "kind": "cited",
+      "proof": [
+        "network of 3,000+ pastors"
+      ],
+      "note": ""
+    },
+    {
+      "id": "aircast.nominees",
+      "display": "1,219",
+      "kind": "cited",
+      "proof": [
+        "Top 1,219 of 11,500+ teams worldwide"
+      ],
+      "note": ""
+    },
+    {
+      "id": "aircast.teams",
+      "display": "11,500+",
+      "kind": "cited",
+      "proof": [
+        "Top 1,219 of 11,500+ teams worldwide"
+      ],
+      "note": ""
+    },
+    {
+      "id": "aircast.my_commits",
+      "display": "19",
+      "kind": "cited",
+      "proof": [
+        "19 of the 27 hackathon commits"
+      ],
+      "note": ""
+    },
+    {
+      "id": "aircast.hack_commits",
+      "display": "27",
+      "kind": "cited",
+      "proof": [
+        "19 of the 27 hackathon commits"
+      ],
+      "note": ""
+    },
+    {
+      "id": "typist.keystrokes",
+      "display": "25,022",
+      "kind": "cited",
+      "proof": [
+        "25,022",
+        "keystrokes in the pilot"
+      ],
+      "note": "Pilot data stays on my laptop; matched to the case study."
+    },
+    {
+      "id": "typist.err_before",
+      "display": "16.8%",
+      "kind": "cited",
+      "proof": [
+        "16.8→5.4%",
+        "error rate across the two sets"
+      ],
+      "note": ""
+    },
+    {
+      "id": "typist.err_after",
+      "display": "5.4%",
+      "kind": "cited",
+      "proof": [
+        "16.8→5.4%",
+        "error rate across the two sets"
+      ],
+      "note": ""
+    },
+    {
+      "id": "typist.tests",
+      "display": "652",
+      "kind": "cited",
+      "proof": [
+        "652",
+        "automated tests, pytest and Vitest"
+      ],
+      "note": ""
+    },
+    {
+      "id": "bis.tests",
+      "display": "282",
+      "kind": "cited",
+      "proof": [
+        "282",
+        "automated tests, green in CI"
+      ],
+      "note": ""
+    },
+    {
+      "id": "learnflow.testers",
+      "display": "150+",
+      "kind": "cited",
+      "proof": [
+        "150+",
+        "beta testers on v1"
+      ],
+      "note": ""
+    },
+    {
+      "id": "overflow.volume",
+      "display": "$100M+",
+      "kind": "cited",
+      "proof": [
+        "$100M+",
+        "in donations a year"
+      ],
+      "note": ""
+    },
+    {
+      "id": "overflow.surfaces",
+      "display": "4",
+      "kind": "cited",
+      "proof": [
+        "across 4 surfaces"
+      ],
+      "note": ""
+    },
+    {
+      "id": "overflow.formats",
+      "display": "9",
+      "kind": "cited",
+      "proof": [
+        "9 brokerage data formats"
+      ],
+      "note": ""
+    },
+    {
+      "id": "overflow.commits",
+      "display": "100+",
+      "kind": "cited",
+      "proof": [
+        "100+ commits across 50+ tickets"
+      ],
+      "note": ""
+    },
+    {
+      "id": "overflow.features",
+      "display": "3",
+      "kind": "cited",
+      "proof": [
+        "3 gift-correction features announced company-wide"
+      ],
+      "note": ""
+    }
+  ]
+}

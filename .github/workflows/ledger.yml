@@ -1,0 +1,48 @@
+# Checks every figure on README.md and renews the ledger stamp on a full pass.
+# On any blocked figure the job fails, nothing is committed, and the stamp keeps its last good date.
+name: ledger
+
+on:
+  schedule:
+    - cron: "0 13 * * 1" # Mondays, 13:00 UTC
+  push:
+    branches: [main]
+    paths: [README.md, facts.json, scripts/ledger.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ledger
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check every figure, then renew the stamp
+        env:
+          RUN_NUMBER: ${{ github.run_number }}
+        run: python scripts/ledger.py --stamp
+
+      # Pushes made with GITHUB_TOKEN don't trigger workflows, and assets/ is outside the
+      # paths filter above, so this commit can't start another run.
+      - name: Commit the stamp
+        run: |
+          if git diff --quiet -- assets; then
+            echo "Stamp unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/ledger-dark.svg assets/ledger-light.svg
+          git commit -m "ledger: every figure checked $(date -u +%F)"
+          git push
